@@ -1,0 +1,111 @@
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #e3f2fd;">
+        <a class="navbar-brand m-1 p-1" href="#">Card Game</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="col mt-1" *ngIf="isPlayerCreated" >
+            <button [disabled]="isPlayerCreated && disableGameStartButton" class="btn btn-sm btn-outline-success mr-2" type="button" 
+                data-toggle="tooltip" data-placement="top" title="Start Card Game" (click)="onButtonClickStartGame()">Start Card Game</button>
+            <button class="btn btn-sm btn-outline-danger mr-2" type="button" (click)="onClickResetPlayerNames()"
+                data-toggle="tooltip" data-placement="top" title="Reset/ Restart Game">Reset/ Restart Game</button>
+            <button [disabled]="(isPlayerCreated && !disableGameStartButton)" class="btn btn-sm btn-outline-info mr-2" type="button" (click)="onClickReShuffleCards()"
+                data-toggle="tooltip" data-placement="top" title="Re-Shuffle Cards">Re-Shuffle Cards</button>
+        </div>
+    </nav>
+
+    <!-- <div class="container-fluid float-left">
+        <div class="row">
+            
+            <div class="col-lg-12 col-md-12"><h3>Board for the Card Game!!!</h3>
+                <div *ngIf="isPlayerCreated && !disableGameStartButton" class="text-danger">Please click on <b>"Start Card Game"</b> button from the top section!</div>
+            </div>
+        </div>
+    </div> -->
+
+    <div *ngIf="!isPlayerCreated" class="container-fluid row">
+        <form [formGroup]="playerForm" (ngSubmit)="onReactiveFormSubmitCreatePlayer()" novalidate>
+            <!-- <form #playerForm="ngForm" (ngSubmit)="onNgFormSubmitCreatePlayer(playerForm)" novalidate> -->
+            <div class="form-group col-lg-12 col-md-12">
+                <label for="playerCountLabel">Select the number of players:</label>
+                <!-- [playerCount: {{playerCount}}] -->
+                <select id="playerCount" name="playerCount" class="form-control"  
+                        [(ngModel)] = "playerCount" [value]='playerCount' formControlName="playerCount"
+                        (change)="onDropDownChangePlayerCount($event)"
+                >
+                    <option [ngValue]="null" disabled>Select the number of players</option>
+                    <option *ngFor="let p of playerCountList" [value]="p.id">{{p.displayName}}</option>
+                </select>
+            </div>
+            <div class="form-group col-lg-12 col-md-12">
+                <label for="playerNameLabel">Enter 1st Player Name: </label>
+                <input type="text" id="playerName" aria-describedby="playerName1Desc" required minlength="3" maxlength="15" placeholder="Enter 1st Player Name" name="playerName1" class="form-control" formControlName="playerName1">
+                <!-- <small id="playerNameHelp" class="form-text text-muted">Please enter your name.</small> -->
+            </div>
+            <div class="form-group col-lg-12 col-md-12">
+                <label for="playerNameLabel">Enter 2nd Player Name: </label>
+                <input type="text" id="playerName" aria-describedby="playerName2Desc" required minlength="3" maxlength="15" placeholder="Enter 2nd Player Name" name="playerName2" class="form-control" formControlName="playerName2">
+                <!-- <small id="playerNameHelp" class="form-text text-muted">Please enter your name.</small> -->
+            </div>
+            <div class="form-group col-lg-12 col-md-12">
+                <label for="playerNameLabel">Enter 3rd Player Name: </label>
+                <input type="text" id="playerName" aria-describedby="playerName3Desc" required minlength="3" maxlength="15" placeholder="Enter 3rd Player Name" name="playerName3" class="form-control" formControlName="playerName3">
+                <!-- <small id="playerNameHelp" class="form-text text-muted">Please enter your name.</small> -->
+            </div>
+              
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-sm btn-outline-primary" [disabled]="!playerForm.valid"
+                data-toggle="tooltip" data-placement="top" title="Create Players"
+                >Create Players</button>
+            </div>
+          </form>
+    </div>
+
+    <div *ngIf="isPlayerCreated" class="container-fluid row">
+        <form>
+            <div class="form-group col-lg-12 col-md-12">
+                <div>Player Names Table:</div>
+                <table class="table table-sm table-bordered" style="border: 1px solid lack">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Player Name</th>
+                        <th scope="col">Action#1</th>
+                        <th scope="col"># Action#2</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let p of playerNameList; let playerIndex = index;">
+                        <td scope="row">{{p.id}}</td>
+                        <td>{{p.displayName}}</td>
+                        <td>
+                           <button [disabled]="!isGameStartedByPlayer || !(isPlayerCreated && disableGameStartButton)" class="btn btn-sm btn-outline-primary mr-3" type="button" (click)="onButtonClickSortCard(p.id)"> Click To Sort For [Player_{{p.id}}] {{p.playerName}}</button>
+                        </td>
+                        <td>
+                            <button [disabled]="!isGameStartedByPlayer || !(isPlayerCreated && disableGameStartButton)" class="btn btn-sm btn-outline-primary mr-3" type="button" (click)="onButtonClickRemoveSortedCard(p.id)"> Click To Erase Sorted Cards for [Player_{{p.id}}] {{p.playerName}}</button>
+                         </td>
+                      </tr>
+                      <tr>
+                    </tbody>
+                  </table>
+                  <!-- <button class="btn btn-outline-danger mr-3" type="button" (click)="onClickResetPlayerNames()">Reset Players</button>
+                  <button [disabled]="isPlayerCreated && disableGameStartButton" class="btn btn-success mr-3" type="button" (click)="onButtonClickStartGame()">Start Card Game</button>
+                  <button [disabled]="!isGameStartedByPlayer" class="btn btn-outline-primary mr-3" type="button" (click)="onButtonClickSortCard(1)"> Click To Sort For 1st Player</button>
+                  <button [disabled]="!isGameStartedByPlayer" class="btn btn-outline-primary mr-3" type="button" (click)="onButtonClickSortCard(2)"> Click To Sort For 2nd Player</button> -->
+                </div>
+                
+          </form>
+    </div>
+
+    <div *ngIf="isPlayerCreated" class="container-fluid row">
+        <app-deck
+            [cardsInMiddle]="cardsInMiddle"
+            [players]="players"
+            [currentPlayer]="currentPlayer"
+        
+            (cardPlayed)="cardPlayed()">
+        </app-deck>
+    </div>
+
+    <!-- [playerSortedCards]="player1SortedCards" -->

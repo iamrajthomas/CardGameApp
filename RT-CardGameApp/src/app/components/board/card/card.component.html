@@ -1,0 +1,25 @@
+<!-- <div class="computer-deck deck">{{card.suit}} - {{card.rank}} - {{card.value}}</div> -->
+
+<div *ngIf="!renderOnlyStack" class="custom-flip-card flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front center">
+        <h1 *ngIf="card.suit === 'SC'">{{card.rank}}</h1>
+        <h1 *ngIf="card.suit !== 'SC'" [ngClass]="card.suit === 'H' || card.suit === 'D'? 'text-danger' : 'black'">{{card.rank}}{{card.suit}}</h1>
+      </div>
+      <div class="flip-card-back center">
+        <h1 *ngIf="card.suit === 'SC'">{{card.rank}}</h1>
+        <h1 *ngIf="card.suit !== 'SC'" [ngClass]="card.suit === 'H' || card.suit === 'D'? 'text-danger' : 'black'">{{card.rank}}{{card.suit}}</h1>
+      </div>
+    </div>
+</div>
+
+<div *ngIf="renderOnlyStack" class="custom-flip-card flip-card">
+  <div class="flip-card-inner text-sm center">
+    <div class="flip-card-front">
+      <p>{{cardsInMiddle.length}} Cards</p>
+    </div>
+    <div class="flip-card-back">
+      <p>{{cardsInMiddle.length}} Cards</p>
+    </div>
+  </div>
+</div>

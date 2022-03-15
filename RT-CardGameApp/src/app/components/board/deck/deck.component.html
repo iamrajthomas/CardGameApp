@@ -1,0 +1,59 @@
+<div class="container-fluid d-flex justify-content-center">
+  <div class="alert alert-success mr-1" >
+    <div class="text-primary"><b>TABLE CARDS (CARDS IN THE MIDDLE)</b></div>
+    <div *ngFor="let card of cardsInMiddle; let cardIndex = index;" class="custom-inline"> 
+      <div *ngIf="cardIndex === 0" class="col-md-12 alert">
+        <div class="bg-successs text-successs"></div>
+          <app-card *ngIf="cardIndex === 0" [card]="card" [cardsInMiddle]="cardsInMiddle" [renderOnlyStack]="true"></app-card>
+      </div>
+    </div>
+</div>
+
+<!-- <div class="alert alert-warning">
+  <div class="text-secondary"><b>PLAYERS [LIST OF PLAYERS DETAILS HERE]</b></div>
+  <span *ngFor="let player of players; let playerIndex = index">
+      <div>{{playerIndex + 1 }} => {{player.playerName}} </div>
+      <div>{{player.playerCards.length}} </div>
+  </span>
+</div> -->
+
+<div class="container-fluid ">
+  <div class="row">
+
+    <div class="col alert alert-info mr-1">
+      <p class="text-danger"><b>PLAYERS DISTRIBUTED CARDS [RANDOMLY GENERATED]</b></p>
+      <div *ngFor="let player of players; let playerIndex = index">  
+        <div class="col-md-12 alert {{ playerIndex % 2 === currentPlayer ? 'alert-success' : 'alert-danger' }}">
+          <div class="bg-successs text-successs">[Player_{{ playerIndex + 1 }}] <b class="text-danger">{{player.playerName}}</b></div>
+            <div *ngFor="let card of player.playerCards; let cardIndex = index"
+              (click)="cardClicked({player: playerIndex, card: cardIndex})" class="custom-inline">
+                <span class="card-1 m-1">
+                    <app-card [card]="card"></app-card>
+                </span>  
+            </div>
+            <!-- <div *ngIf="playerIndex == currentPlayer" >
+              <span class="label label-success">Your turn!</span>
+            </div> -->
+        </div>   
+        
+      </div>
+    </div>  
+
+    <div class="col alert alert-primary mr-1">
+      <div class="text-primary"><b>PLAYERS SORTED CARDS [SORTED USING BACK-END API]</b></div>
+      <div *ngFor="let player of players; let playerIndex = index">  
+        <div class="col-md-12 alert {{ playerIndex % 2 === currentPlayer ? 'alert-success' : 'alert-danger' }}">
+          <div class="bg-successs text-successs">[Player_{{ playerIndex + 1 }}] <b class="text-success">{{player.playerName}}</b></div>
+            <div *ngFor="let card of player.playerSortedCards; let cardIndex = index"
+              (click)="cardClicked({player: playerIndex, card: cardIndex})" class="custom-inline">
+                <span class="card-1 m-1">
+                    <app-card [card]="card"></app-card>
+                </span>  
+            </div>
+        </div>   
+        
+      </div>
+    </div>
+  </div>
+
+</div>

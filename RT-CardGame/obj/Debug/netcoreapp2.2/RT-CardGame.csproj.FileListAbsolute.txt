@@ -1,0 +1,12 @@
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\obj\Debug\netcoreapp2.2\RT-CardGame.csproj.CoreCompileInputs.cache
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\obj\Debug\netcoreapp2.2\RT-CardGame.AssemblyInfoInputs.cache
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\obj\Debug\netcoreapp2.2\RT-CardGame.AssemblyInfo.cs
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\bin\Debug\netcoreapp2.2\RT-CardGame.deps.json
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\bin\Debug\netcoreapp2.2\RT-CardGame.runtimeconfig.json
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\bin\Debug\netcoreapp2.2\RT-CardGame.runtimeconfig.dev.json
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\bin\Debug\netcoreapp2.2\RT-CardGame.dll
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\bin\Debug\netcoreapp2.2\RT-CardGame.pdb
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\obj\Debug\netcoreapp2.2\RT-CardGame.RazorTargetAssemblyInfo.cache
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\obj\Debug\netcoreapp2.2\RT-CardGame.dll
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\obj\Debug\netcoreapp2.2\RT-CardGame.pdb
+C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGame\obj\Debug\netcoreapp2.2\RT-CardGame.csprojAssemblyReference.cache

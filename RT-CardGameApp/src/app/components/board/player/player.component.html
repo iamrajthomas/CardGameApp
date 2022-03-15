@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-xs-3">
+      <div class="btn-group">
+        <input type="button" (click)="onRemove()" value="Remove -" class="btn btn-sm btn-outline-danger" />
+        <input type="button" (click)="onAdd()" value="Add +" class="btn btn-sm btn-outline-success" />
+      </div>
+    </div>
+    <div class="col-xs-2 col-xs-offset-2">
+      <span class="bg-success text-success">Players: {{ playerCount }}</span>
+    </div>
+      <div class="col-xs-1 col-xs-offset-3">
+      <input type="button" (click)="onStart()" value="Start" class="btn btn-sm btn-outline-primary" />
+    </div>
+</div>
