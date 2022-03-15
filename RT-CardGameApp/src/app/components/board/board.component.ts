@@ -158,13 +158,13 @@ export class BoardComponent implements OnInit, OnDestroy {
   // Forms Events Captured
   onReactiveFormSubmitCreatePlayer(){
     // Player Reactive Form Submit
-    console.log(this.playerForm.value);
+    // console.log(this.playerForm.value);
     this.createPlayer(this.playerForm.value as Player);
   }
 
   onNgFormSubmitCreatePlayer(playerForm: NgForm){
     // Player Ng Form Submit
-    console.log(playerForm.form.value);
+    // console.log(playerForm.form.value);
     this.createPlayer(playerForm.form.value as Player);
   }
 
@@ -200,7 +200,7 @@ export class BoardComponent implements OnInit, OnDestroy {
   }
 
   whenStarted() : void {
-    console.log("Starting");
+    // console.log("Starting");
     this.players = [];
     this.cardsInMiddle = [];
     this.currentPlayer = 1;

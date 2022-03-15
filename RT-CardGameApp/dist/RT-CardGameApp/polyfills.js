@@ -4075,7 +4075,7 @@ var __spreadArray = this && this.__spreadArray || function (to, from, pack) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGameApp\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGameApp\src\polyfills.ts */"hN/g");
 
 
 /***/ }),

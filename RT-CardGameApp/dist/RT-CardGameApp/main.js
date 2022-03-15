@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGameApp\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! C:\TFS\source\repos\CardGame\ASPNetCore\RT-CardGame\RT-CardGameApp\src\main.ts */"zUnb");
 
 
 /***/ }),
@@ -116,7 +116,7 @@ var CardComponent = /** @class */ (function () {
     function CardComponent() {
     }
     CardComponent.prototype.ngOnInit = function () {
-        console.log('card: ', this.card);
+        // console.log('card: ', this.card);
     };
     CardComponent.ɵfac = function CardComponent_Factory(t) { return new (t || CardComponent)(); };
     CardComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: CardComponent, selectors: [["app-card"]], inputs: { card: "card", cardsInMiddle: "cardsInMiddle", renderOnlyStack: "renderOnlyStack" }, decls: 2, vars: 2, consts: [["class", "custom-flip-card flip-card", 4, "ngIf"], [1, "custom-flip-card", "flip-card"], [1, "flip-card-inner"], [1, "flip-card-front", "center"], [4, "ngIf"], [3, "ngClass", 4, "ngIf"], [1, "flip-card-back", "center"], [3, "ngClass"], [1, "flip-card-inner", "text-sm", "center"], [1, "flip-card-front"], [1, "flip-card-back"]], template: function CardComponent_Template(rf, ctx) { if (rf & 1) {
@@ -517,10 +517,6 @@ var CardService = /** @class */ (function () {
     function CardService(http) {
         this.http = http;
         //readonly baseURL = 'http://localhost:7799/api/Card/PostPrioritySortedCard';
-        //readonly baseURL = `${config.apiUrl}/Card/PostPrioritySortedCard`;
-        // readonly baseURL = `http://20.80.188.60/api/Card/PostPrioritySortedCard`;
-        //readonly baseURL = `/api/Card/PostPrioritySortedCard`;
-        //readonly baseURL = `/api:80/Card/PostPrioritySortedCard`;
         // This is for the Azure Deployed API URL -- Working fine!!!
         this.baseURL = "/API/api/Card/PostPrioritySortedCard";
     }
@@ -1021,12 +1017,12 @@ var BoardComponent = /** @class */ (function () {
     // Forms Events Captured
     BoardComponent.prototype.onReactiveFormSubmitCreatePlayer = function () {
         // Player Reactive Form Submit
-        console.log(this.playerForm.value);
+        // console.log(this.playerForm.value);
         this.createPlayer(this.playerForm.value);
     };
     BoardComponent.prototype.onNgFormSubmitCreatePlayer = function (playerForm) {
         // Player Ng Form Submit
-        console.log(playerForm.form.value);
+        // console.log(playerForm.form.value);
         this.createPlayer(playerForm.form.value);
     };
     // Clean up code
@@ -1055,7 +1051,7 @@ var BoardComponent = /** @class */ (function () {
             this.playerCount--;
     };
     BoardComponent.prototype.whenStarted = function () {
-        console.log("Starting");
+        // console.log("Starting");
         this.players = [];
         this.cardsInMiddle = [];
         this.currentPlayer = 1;
